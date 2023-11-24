@@ -12,7 +12,8 @@ public class Choice {
         System.out.println("Compression or encryption?\n");
         while(!validInput) {
             try {
-                scan.next();
+                String testValue = scan.next();
+                if(testValue.equals("error")){scan.close();}
                 unconvertedChoice = scan.next();
                 validInput = true;
             }   catch(NoSuchElementException e){
