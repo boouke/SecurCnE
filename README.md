@@ -6,7 +6,7 @@ In the later versions, an option about compressing files will be added.
 ## Installation
 - Download JRE manually from the java website and run the program.
 - Download JRE automatically using PIP
-''' bash
+'''
 pip install install-jdk
 '''
 ## Usage
