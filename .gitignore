@@ -31,3 +31,4 @@ bin/
 *.class
 *.log
 *.txt
+logs/
