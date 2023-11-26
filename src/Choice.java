@@ -1,48 +1,52 @@
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Choice {
-    private int setChoiceFlag(){
-        String errorCode;
-        boolean corePanicState = false;
-        String unconvertedChoice = "";
-        boolean validInput = false;
-        Scanner scan = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
+    ExceptionCatcher exceptionCatcher = new ExceptionCatcher();
 
+    String userFlag = "";
+    boolean validInput = false;
+
+    private int setChoiceFlag(){
         System.out.println("Compression or encryption?\n");
-        while(!validInput) {
-            try {
-                String testValue = scan.next();
-                if(testValue.equals("error")){scan.close();}
-                unconvertedChoice = scan.next();
-                validInput = true;
-            }   catch(NoSuchElementException e){
-                errorCode = "e0x01";
-                System.out.println(TechnicalErrorConstants.e0x01);
-                Error.logError(e, errorCode, corePanicState);
-                System.exit(1);
-            }   catch(IllegalStateException e){
-                errorCode = "e0x11";
-                corePanicState = true;
-                System.out.println(TechnicalErrorConstants.coreErrorStart + TechnicalErrorConstants.e0x11 + TechnicalErrorConstants.coreErrorEnd + TechnicalErrorConstants.corePanic);
-                Error.logError(e, errorCode, corePanicState);
-                System.exit(1);
-            }
+
+        String testValue = scan.next();
+        if (testValue.equals("error")) {
+            scan.close();
         }
-        //System.out.println(unconvertedChoice);
-        return (unconvertedChoice.equals("compression")) ? 1 : (unconvertedChoice.equals("encryption")) ? 2 : 0;
+        if (testValue.equals("rle")) {
+            RunLengthEncoding RLE = new RunLengthEncoding();
+            RLE.RLE();
+            System.exit(1);
+        }
+
+        userFlag = exceptionCatcher.stringValidate();
+        System.out.println("debug: " + userFlag);
+
+        return (userFlag.equals("compression")) ? 1 : 0;
     }
-    public void choiceFunc(){
+    public String choiceFunc(){
         int choiceFlag = setChoiceFlag();
-        System.out.println(choiceFlag);
+        System.out.println("debug: " + choiceFlag);
+
         switch(choiceFlag){
             case 1:
                 System.out.println("Selected compression");
-                System.out.println("What algorithm do you want to use?");
-                break;
+                userFlag = exceptionCatcher.stringValidate();
+
+                while(!userFlag.equals("RLE")){
+                    System.out.println(TechnicalWarningConstants.w0x01);
+                    userFlag = exceptionCatcher.stringValidate();
+                }
+
+                RunLengthEncoding RLE = new RunLengthEncoding();
+                validInput = true;
+                String compressedString = RLE.RLE();
+                return compressedString;
             case 2:
 
                 break;
         }
+        return null;
     }
 }
