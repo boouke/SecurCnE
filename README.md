@@ -13,8 +13,6 @@ pip install install-jdk
 The program is still in development mode.
 No usage tips available
 ## Contributions
-Please leave recommendations
-- using pull request
-- issues tab
+- boouke [lead]
 ## License
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text)
