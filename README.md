@@ -1,3 +1,11 @@
+![GitHub tag (with filter)](https://img.shields.io/github/v/tag/boouke/SecurCnE?label=version) ![Discord](https://img.shields.io/discord/1178489896567058562) ![GitHub repo size](https://img.shields.io/github/repo-size/boouke/SecurCnE)
+
+
+
+
+
+
+
 # SecurCnE
 ## Secure Compression and Encryption system
 SecurCnE is a system supporting the compression and 
@@ -13,6 +21,7 @@ pip install install-jdk
 The program is still in development mode.
 No usage tips available
 ## Contributions
-- boouke [lead]
+- Lead Contributor : boouke
 ## License
-[GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text)
+This project is licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text). You can find more details about the license in the provided link.
+
