@@ -7,15 +7,16 @@ public class RunLengthEncoding {
         System.out.println("RLE selected. Please type a string to compress. Note-Only text in line 1 will be compressed.");
         String unencodedString = "";
         StringBuilder encodedString = new StringBuilder();
-        String filePath = "file/initialFile.txt";
-        String encodedFilePath = "file/compressedFile.txt";
+        String filePath = "../file/initialFile.txt";
+        String encodedFilePath = "../file/compressedFile.txt";
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
             unencodedString = bufferedReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.start();
         int count = 1;
 
         for (int i = 0; i < unencodedString.length(); i++) {
@@ -51,15 +52,13 @@ public class RunLengthEncoding {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println("Original String: " + unencodedString);
-        System.out.println("Compressed String: " + encodedString);
+        System.out.println(stopwatch.stop());
         return true;
     }
 
     public void RLEdecode() {
-        String filePath = "file/compressedFile.txt";
-        String unencodedFilePath = "file/uncompressedFile.txt";
+        String filePath = "../file/compressedFile.txt";
+        String decodedFilePath = "../file/uncompressedFile.txt";
         String encodedString = "";
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
             encodedString = reader.readLine();
@@ -67,7 +66,8 @@ public class RunLengthEncoding {
             e.printStackTrace();
         }
 
-
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.start();
         StringBuilder decodedString = new StringBuilder();
 
         for (int i = 0; i < encodedString.length(); i++) {
@@ -85,12 +85,11 @@ public class RunLengthEncoding {
                 decodedString.append(character);
             }
         }
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(unencodedFilePath))){
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(decodedFilePath))){
             writer.write(decodedString.toString());
         } catch (IOException e){
             e.printStackTrace();
         }
-        System.out.println("Compressed String: " + encodedString);
-        System.out.println("Decoded String: " + decodedString);
+        System.out.println(stopwatch.stop());
     }
 }
