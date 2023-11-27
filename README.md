@@ -1,4 +1,4 @@
-![GitHub tag (with filter)](https://img.shields.io/github/v/tag/boouke/SecurCnE?label=version) ![Discord](https://img.shields.io/discord/1178489896567058562) ![GitHub repo size](https://img.shields.io/github/repo-size/boouke/SecurCnE)
+![GitHub tag (with filter)](https://img.shields.io/github/v/tag/boouke/SecurCnE?label=version) ![GitHub repo size](https://img.shields.io/github/repo-size/boouke/SecurCnE)  ![Discord](https://img.shields.io/discord/1178489896567058562)
 
 
 
