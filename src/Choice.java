@@ -5,7 +5,6 @@ public class Choice {
     ExceptionCatcher exceptionCatcher = new ExceptionCatcher();
 
     String userFlag = "";
-    boolean validInput = false;
 
     private int setChoiceFlag(){
         System.out.println("Compression or encryption?\n");
@@ -14,10 +13,13 @@ public class Choice {
         if (testValue.equals("error")) {
             scan.close();
         }
-        if (testValue.equals("rle")) {
+        else if (testValue.equals("rle")) {
             RunLengthEncoding RLE = new RunLengthEncoding();
-            RLE.RLE();
-            System.exit(1);
+            RLE.RLEencode();
+        }
+        else if (testValue.equals("urle")){
+            RunLengthEncoding RLE = new RunLengthEncoding();
+            RLE.RLEdecode();
         }
 
         userFlag = exceptionCatcher.stringValidate();
@@ -25,28 +27,31 @@ public class Choice {
 
         return (userFlag.equals("compression")) ? 1 : 0;
     }
-    public String choiceFunc(){
+    public void choiceFunc(){
         int choiceFlag = setChoiceFlag();
         System.out.println("debug: " + choiceFlag);
 
         switch(choiceFlag){
             case 1:
-                System.out.println("Selected compression");
+                System.out.println("Selected compression || Encoding(encode), or decryption?(decrypt)");
                 userFlag = exceptionCatcher.stringValidate();
 
-                while(!userFlag.equals("RLE")){
+                while(!userFlag.equalsIgnoreCase("RLE") && !userFlag.equalsIgnoreCase("decrypt")) {
                     System.out.println(TechnicalWarningConstants.w0x01);
                     userFlag = exceptionCatcher.stringValidate();
                 }
-
-                RunLengthEncoding RLE = new RunLengthEncoding();
-                validInput = true;
-                String compressedString = RLE.RLE();
-                return compressedString;
+                if (userFlag.equalsIgnoreCase("encode")) {
+                    RunLengthEncoding RLE = new RunLengthEncoding();
+                    RLE.RLEencode();
+                }
+                else if(userFlag.equalsIgnoreCase("decrypt")){
+                    RunLengthEncoding RLE = new RunLengthEncoding();
+                    RLE.RLEdecode();
+                }
+                break;
             case 2:
 
                 break;
         }
-        return null;
     }
 }
