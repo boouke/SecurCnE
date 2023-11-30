@@ -6,19 +6,28 @@
 
 
 
-# SecurCnE
-## Secure Compression and Encryption system
-SecurCnE is a system supporting the compression and 
-encryption of string values and text files.
-In the later versions, an option about compressing files will be added.
+# SecurCnE: Run-Length Encoding Compression
+
+Compress your data efficiently with SecurCnE, a Run-Length Encoding (RLE) compression program.
+
+## Overview
+
+SecurCnE is a specialized Run-Length Encoding (RLE) compression program designed to efficiently compress data. It's your solution for reducing file sizes through a simple yet powerful compression technique.
+
 ## Installation
-- Download JRE manually from the java website and run the program. and compile
-- Download JRE automatically using PIP and compile
-~~~bash
+
+### Manual Download
+1. Download the Java Runtime Environment (JRE) manually from the [Java website](https://www.java.com/).
+2. Run the program after installation.
+
+### Automated Download (Note: Experimental)
+```bash
+# This script is experimental and may not work in all environments.
 pip install install-jdk
-cd [src dir] javac Main.java
+cd [src dir]
+javac Main.java
 java Main
-~~~
+```
 ## Usage
 The program is still in development mode.
 No usage tips available
