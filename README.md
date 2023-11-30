@@ -29,10 +29,10 @@ javac Main.java
 java Main
 ```
 ## Usage
-The program is still in development mode.
-No usage tips available
+Please note that the program is still not very far in development, and detailed usage tips are not available at the moment.
 ## Contributions
 - Lead Contributor : boouke
 ## License
 This project is licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text). You can find more details about the license in the provided link.
-
+## Notes
+Feel free to contribute, report issues, or join our Discord community!
