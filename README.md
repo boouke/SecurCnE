@@ -12,10 +12,12 @@ SecurCnE is a system supporting the compression and
 encryption of string values and text files.
 In the later versions, an option about compressing files will be added.
 ## Installation
-- Download JRE manually from the java website and run the program.
-- Download JRE automatically using PIP
+- Download JRE manually from the java website and run the program. and compile
+- Download JRE automatically using PIP and compile
 ~~~bash
 pip install install-jdk
+cd [src dir] javac Main.java
+java Main
 ~~~
 ## Usage
 The program is still in development mode.
