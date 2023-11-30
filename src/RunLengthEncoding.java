@@ -1,10 +1,8 @@
 import java.io.*;
 
 public class RunLengthEncoding {
-    ExceptionCatcher exceptionCatcher = new ExceptionCatcher();
-
     public boolean RLEencode() {
-        System.out.println("RLE selected. Please type a string to compress. Note-Only text in line 1 will be compressed.");
+        System.out.println("RLE selected. Note-Only text in line 1 will be compressed.");
         String unencodedString = "";
         StringBuilder encodedString = new StringBuilder();
         String filePath = "../file/initialFile.txt";
@@ -15,10 +13,11 @@ public class RunLengthEncoding {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.start();
+        Tools tools = new Tools();
+        tools.stopwatchStart();
+        System.out.println("\nStarting compression...");
         int count = 1;
-
+        int charNum = 0;
         for (int i = 0; i < unencodedString.length(); i++) {
             char character = unencodedString.charAt(i);
             if (Character.isDigit(character)){
@@ -28,13 +27,17 @@ public class RunLengthEncoding {
         }
 
         for (int i = 1; i < unencodedString.length(); i++) {
+            charNum++;
+            if (charNum % 200 == 0){
+                System.out.print("\n");
+            }
+            System.out.print(unencodedString.charAt(i));
             if (unencodedString.charAt(i) == unencodedString.charAt(i - 1)) {
                 count++;
             } else {
                 if (count == 1){
                     encodedString.append(unencodedString.charAt(i - 1));
-                }
-                else {
+                } else {
                     encodedString.append(unencodedString.charAt(i - 1)).append(count);
                     count = 1;
                 }
@@ -42,8 +45,7 @@ public class RunLengthEncoding {
         }
         if (count == 1) {
             encodedString.append(unencodedString.charAt(unencodedString.length() - 1));
-        }
-        else {
+        } else {
             encodedString.append(unencodedString.charAt(unencodedString.length() - 1)).append(count);
         }
 
@@ -52,7 +54,8 @@ public class RunLengthEncoding {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(stopwatch.stop());
+        System.out.println("\n\nStopping compression...");
+        System.out.println(tools.stopwatchStop());
         return true;
     }
 
@@ -66,8 +69,8 @@ public class RunLengthEncoding {
             e.printStackTrace();
         }
 
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.start();
+        Tools tools = new Tools();
+        tools.stopwatchStart();
         StringBuilder decodedString = new StringBuilder();
 
         for (int i = 0; i < encodedString.length(); i++) {
@@ -90,6 +93,6 @@ public class RunLengthEncoding {
         } catch (IOException e){
             e.printStackTrace();
         }
-        System.out.println(stopwatch.stop());
+        System.out.println(tools.stopwatchStop());
     }
 }

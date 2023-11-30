@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="compression_tool:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/compression_tool_jar</output-path>
-    <root id="archive" name="compression_tool.jar">
-      <element id="module-output" name="SecurCnE" />
-    </root>
-  </artifact>
-</component>
