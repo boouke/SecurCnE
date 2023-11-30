@@ -12,6 +12,15 @@ public class RunLengthEncoding {
             unencodedString = bufferedReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NullPointerException e){
+            System.out.println(TechnicalErrorConstants.coreErrorStart + TechnicalErrorConstants.e0x22 + TechnicalErrorConstants.coreErrorEnd + TechnicalErrorConstants.corePanic);
+            Error.logError(e, "e0x22", true);
+            System.exit(1);
+        }
+        if (unencodedString == null){
+            System.out.println(TechnicalErrorConstants.coreErrorStart + TechnicalErrorConstants.e0x22 + TechnicalErrorConstants.coreErrorEnd + TechnicalErrorConstants.corePanic);
+            Error.logErrorNoException("e0x22", true);
+            System.exit(1);
         }
         Tools tools = new Tools();
         tools.stopwatchStart();

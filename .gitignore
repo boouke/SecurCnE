@@ -31,5 +31,4 @@ bin/
 *.class
 *.dmp
 *.txt
-/.idea
-*.txt
+.idea/
