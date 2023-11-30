@@ -29,6 +29,7 @@ bin/
 .DS_Store
 
 *.class
-*.log
+*.dmp
 *.txt
-logs/
+/.idea
+*.txt
